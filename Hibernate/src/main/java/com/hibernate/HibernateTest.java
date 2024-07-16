@@ -12,15 +12,27 @@ public class HibernateTest {
 		
 		user.setUserName("Swastik Joshi");
 		user.setJoinedDate(new Date());
-		user.setAddress("Haldwani");
-		user.setDiscription("New Employ");
+		user.setDescription("New Employ");
+		
+		Address addr =new Address();
+		addr.setCityName("Haldwani");
+		addr.setPinCode("263139");
+		addr.setStatename("Uttrakhand");
+		addr.setStreatName("LocalStreat");
+		user.setAddress(addr);
 		
 		UserDetails user2 = new UserDetails();
 		
 		user2.setUserName("Shiva Joshi");
 		user2.setJoinedDate(new Date());
-		user2.setAddress("Haldwani");
-		user2.setDiscription("New Employ");
+		user2.setDescription("New Employ");
+		
+		Address addr2 =new Address();
+		addr2.setCityName("Haldwani");
+		addr2.setPinCode("263139");
+		addr2.setStatename("Uttrakhand");
+		addr2.setStreatName("LocalStreat");
+	    user2.setAddress(addr2);;
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -29,6 +41,7 @@ public class HibernateTest {
 		session.save(user2);
 		session.getTransaction().commit();
 		session.close();
+		sessionFactory.close();
 
 		;
 	}
