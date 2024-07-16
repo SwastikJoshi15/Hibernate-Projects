@@ -2,60 +2,65 @@ package com.hibernate;
 
 import java.util.Date;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity(name = "user_details")
 public class UserDetails {
-	@Id @GeneratedValue
-	@Column(name = "user_id")
-	private int userID;
-	@Column(name = "user_name")
-	private String userName;
-	private String address;
-	public String getAddress() {
-		return address;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "user_id")
+    private int userID;
+    @Column(name = "user_name")
+    private String userName;
+    @Embedded
+    private Address address;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "joined_date")
+    private Date joinedDate;
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    // Getters and setters
+    public int getUserID() {
+        return userID;
+    }
 
-	public String getDiscription() {
-		return discription;
-	}
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public Date getJoinedDate() {
-		return JoinedDate;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setJoinedDate(Date joinedDate) {
-		JoinedDate = joinedDate;
-	}
+    public Address getAddress() {
+        return address;
+    }
 
-	private String discription;
-	private Date JoinedDate;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-	public int getUserID() {
-		return userID;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public Date getJoinedDate() {
+        return joinedDate;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
+    public void setJoinedDate(Date joinedDate) {
+        this.joinedDate = joinedDate;
+    }
 }
+
