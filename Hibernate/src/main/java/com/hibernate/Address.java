@@ -1,45 +1,40 @@
 package com.hibernate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Address {
-
-	private String CityName;
-	private String Statename;
-	private String StreatName;
-	private String PinCode;
-
+	@Column(name = "city_name")
+	private String cityName;
+	@Column(name = "state_name")
+	private String stateName;
+	@Column(name = "streat_name")
+	private String streatName;
+	@Column(name = "pin_code")
+	private String pinCode;
 	public String getCityName() {
-		return CityName;
+		return cityName;
 	}
-
 	public void setCityName(String cityName) {
-		CityName = cityName;
+		this.cityName = cityName;
 	}
-
-	public String getStatename() {
-		return Statename;
+	public String getStateName() {
+		return stateName;
 	}
-
-	public void setStatename(String statename) {
-		Statename = statename;
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
 	}
-
 	public String getStreatName() {
-		return StreatName;
+		return streatName;
 	}
-
 	public void setStreatName(String streatName) {
-		StreatName = streatName;
+		this.streatName = streatName;
 	}
-
 	public String getPinCode() {
-		return PinCode;
+		return pinCode;
 	}
-
 	public void setPinCode(String pinCode) {
-		PinCode = pinCode;
+		this.pinCode = pinCode;
 	}
-
 }
