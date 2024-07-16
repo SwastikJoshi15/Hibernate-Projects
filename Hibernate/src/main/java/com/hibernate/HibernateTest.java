@@ -9,25 +9,28 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 		UserDetails user = new UserDetails();
-		user.setUserID(1);
+		
 		user.setUserName("Swastik Joshi");
 		user.setJoinedDate(new Date());
 		user.setAddress("Haldwani");
 		user.setDiscription("New Employ");
+		
+		UserDetails user2 = new UserDetails();
+		
+		user2.setUserName("Shiva Joshi");
+		user2.setJoinedDate(new Date());
+		user2.setAddress("Haldwani");
+		user2.setDiscription("New Employ");
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(user);
+		session.save(user2);
 		session.getTransaction().commit();
 		session.close();
 
-		user = null;
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-		user = (UserDetails) session.get(UserDetails.class, 1);
-		System.out.println(
-				"User name retrived is " + user.getUserName() + ";" + "User Adderss retreved is  " + user.getAddress());
+		;
 	}
 
 }

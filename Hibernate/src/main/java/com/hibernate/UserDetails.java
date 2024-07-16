@@ -3,12 +3,13 @@ package com.hibernate;
 import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity(name = "user_details")
 public class UserDetails {
-	@Id()
+	@Id @GeneratedValue
 	@Column(name = "user_id")
 	private int userID;
 	@Column(name = "user_name")
